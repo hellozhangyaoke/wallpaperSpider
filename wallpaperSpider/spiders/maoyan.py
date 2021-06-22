@@ -1,4 +1,4 @@
-import scrapy,json
+import scrapy,json,requests
 from wallpaperSpider.items import MaoyanItem
 
 class MaoyanSpider(scrapy.Spider):
@@ -7,11 +7,11 @@ class MaoyanSpider(scrapy.Spider):
     page = 1
     allowed_domains = ["zuimeix.com"]
     start_urls = [
-        "https://wallpaper.zuimeix.com/wp-json/mp/v2/posts?per_page=50&page=1"
+        # "https://wallpaper.zuimeix.com/wp-json/mp/v2/posts?per_page=50&page=5"
         # 潮图
         # "https://wallpaper.zuimeix.com/wp-json/mp/v2/posts?orderby=rand&per_page=15&categories=1&page=1",
         # # 热门
-        # "https://wallpaper.zuimeix.com/wp-json/mp/v2/posts?custom=most&per_page=15&categories=1&page=1"
+        "https://wallpaper.zuimeix.com/wp-json/mp/v2/posts?custom=most&per_page=15&categories=1&page=1"
     ]
 
 

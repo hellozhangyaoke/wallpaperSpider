@@ -4,7 +4,7 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-
+import requests
 # useful for handling different item types with a single interface
 from itemadapter import is_item, ItemAdapter
 
@@ -71,7 +71,7 @@ class WallpaperspiderDownloaderMiddleware:
     def process_request(self, request, spider):
         # Called for each request that goes through the downloader
         # middleware.
-
+        request.meta["proxy"] = "http://"+requests.get("http://127.0.0.1:5010/get/").json()["proxy"]
         # Must either:
         # - return None: continue processing this request
         # - or return a Response object
